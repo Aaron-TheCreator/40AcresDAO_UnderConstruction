@@ -120,7 +120,7 @@ function App() {
               saturation={0}
               fade={true}
             />
-            <ambientLight intensity={0.5} />
+            {/* <ambientLight intensity={0.5} /> */}
           </Canvas>
           <HiddenHeader>40 Acres Dao</HiddenHeader>
           <HeaderMsg>

@@ -51,7 +51,7 @@ export function Earth(props) {
 
   return (
     <>
-      <pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={2.2} />
+      <pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={2} />
       {/* <mesh position={[0, 0, 3.3]}>
         <sphereGeometry args={[1, 64, 64]} />
         <meshPhysicalMaterial map={cloudsMap} />
