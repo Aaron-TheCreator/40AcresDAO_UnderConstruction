@@ -18,7 +18,7 @@ const Twitter = () => {
   // useFrame(({ clock }) => {
   //   const elapsedTime = clock.getElapsedTime();
 
-  //   twttrRef.current.rotation.y = elapsedTime / 6;
+  //   twttrRef.current.rotation.y = elapsedTime / 3;
   // });
   // useFrame(() => {
   //   // const elapsedTime = clock.getElapsedTime();
@@ -27,13 +27,14 @@ const Twitter = () => {
   //   twttrRef.current.rotation.y += 0.004;
   // });
   return model ? (
-    <primitive
-      ref={twttrRef}
-      rotation={[0, 0.9, 0]}
-      object={model.scene}
-      scale={[0.001, 0.001, 0.001]}
-      position={[-0.52, -1, 2.5]}
-    />
+    <group ref={twttrRef}>
+      <primitive
+        rotation={[0, 0.9, 0]}
+        object={model.scene}
+        scale={[0.001, 0.001, 0.001]}
+        position={[-0.4, -0.75, 2.5]}
+      />
+    </group>
   ) : null;
 };
 
