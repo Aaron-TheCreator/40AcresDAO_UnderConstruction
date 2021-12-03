@@ -50,6 +50,7 @@ export function Earth(props) {
   });
 
   return (
+    // this returns planet AND cube objects
     <>
       <pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={2} />
       {/* <mesh position={[0, 0, 3.3]}>
@@ -81,8 +82,8 @@ export function Earth(props) {
       {/* cube mesh */}
       <animated.mesh
         ref={cubeRef}
-        position={[-0.15, 0.5, 4.1]}
-        scale={[0.08, 0.08, 0.08]}
+        position={[0.1, 0.5, 4.1]}
+        scale={[0.15, 0.15, 0.15]}
       >
         <boxBufferGeometry args={[4, 2, 2]} />
         <meshPhongMaterial map={acresMap} transparent={true} />
