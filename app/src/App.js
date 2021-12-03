@@ -58,6 +58,8 @@ const TimerCTACont = styled.div`
     -5px -1px 40px -5px rgba(221, 232, 220, 0.73);
   box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
     -5px -1px 40px -5px rgba(221, 232, 220, 0.73);
+  max-width: 60%;
+  //margin-
 `;
 
 const CTATextCont = styled.div`
