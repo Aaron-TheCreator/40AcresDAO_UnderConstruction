@@ -28,7 +28,10 @@ const getTimeDays = (time) => (time / daySeconds) | 0;
 
 export default function Timer() {
   const startTime = Date.now() / 1000; // use UNIX timestamp in seconds
-  const endTime = startTime + 1639548; // use UNIX timestamp in seconds
+  // const endDate = new Date(2021, 11, 17); can be used for display i.e w/ start
+  let endUNIX = Date.UTC(2021, 11, 17);
+
+  const endTime = endUNIX / 1000; //use UNIX timestamp in seconds
 
   const remainingTime = endTime - startTime;
   const days = Math.ceil(remainingTime / daySeconds);
@@ -38,7 +41,7 @@ export default function Timer() {
     <div className="timer">
       <CountdownCircleTimer
         {...timerProps}
-        colors={[["#7E2E84"]]}
+        colors={[["#000000"]]}
         duration={daysDuration}
         initialRemainingTime={remainingTime}
       >
@@ -48,7 +51,7 @@ export default function Timer() {
       </CountdownCircleTimer>
       <CountdownCircleTimer
         {...timerProps}
-        colors={[["#D14081"]]}
+        colors={[["#941103"]]}
         duration={daySeconds}
         initialRemainingTime={remainingTime % daySeconds}
         onComplete={(totalElapsedTime) => [
@@ -61,7 +64,7 @@ export default function Timer() {
       </CountdownCircleTimer>
       <CountdownCircleTimer
         {...timerProps}
-        colors={[["#EF798A"]]}
+        colors={[["#126102"]]}
         duration={hourSeconds}
         initialRemainingTime={remainingTime % hourSeconds}
         onComplete={(totalElapsedTime) => [
@@ -74,7 +77,7 @@ export default function Timer() {
       </CountdownCircleTimer>
       <CountdownCircleTimer
         {...timerProps}
-        colors={[["#218380"]]}
+        colors={[["#d4bf08"]]}
         duration={minuteSeconds}
         initialRemainingTime={remainingTime % minuteSeconds}
         onComplete={(totalElapsedTime) => [
