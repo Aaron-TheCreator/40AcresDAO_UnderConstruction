@@ -153,7 +153,7 @@ const BottomContent = styled.div`
   }
   @media ${device.mobileM} {
     margin-top: 425%;
-    margin-bottom: -425%;
+    // margin-bottom: -425%;
   }
 `;
 
