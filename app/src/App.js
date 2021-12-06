@@ -5,6 +5,8 @@ import { Earth } from "./components/Earth/Planet.js";
 import { OrbitControls, Stars } from "@react-three/drei";
 import Twitter from "./components/TwitterBird/index.js";
 import Timer from "./components/CountDown/Timer.js";
+// import Loading from "./components/Loading/index.js";
+import Loading from "./components/Loading/index.js";
 import "./App.css";
 
 // object for styled components @media queries
@@ -158,7 +160,7 @@ const BottomContent = styled.div`
 function App() {
   return (
     <>
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loading />}>
         <CanvasContainer className="canvasCont">
           <Canvas>
             <Earth />
