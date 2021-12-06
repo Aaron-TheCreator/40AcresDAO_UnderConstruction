@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const Twitter = () => {
@@ -8,24 +7,9 @@ const Twitter = () => {
   useEffect(() => {
     loader.load("/twitter_logo/scene.gltf", setModel);
   }, [loader]);
-  //   console.log(model);
 
   const twttrRef = useRef();
 
-  // console.log("line 27 TwttBrd: twttrRef:", twttrRef);
-
-  // controls auto-rotate
-  // useFrame(({ clock }) => {
-  //   const elapsedTime = clock.getElapsedTime();
-
-  //   twttrRef.current.rotation.y = elapsedTime / 3;
-  // });
-  // useFrame(() => {
-  //   // const elapsedTime = clock.getElapsedTime();
-
-  //   // twttrRef.rotation.y = elapsedTime / 6;
-  //   twttrRef.current.rotation.y += 0.004;
-  // });
   return model ? (
     <group ref={twttrRef}>
       <primitive

@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import styled from "styled-components";
 import { Canvas } from "@react-three/fiber";
 import { Earth } from "./components/Earth/Planet.js";
-import { OrbitControls, Stars } from "@react-three/drei";
+import { Stars } from "@react-three/drei";
 import Twitter from "./components/TwitterBird/index.js";
 import Timer from "./components/CountDown/Timer.js";
 // import Loading from "./components/Loading/index.js";

@@ -1,11 +1,11 @@
 // NOTES:
 // Lots of unused code here for animation
 // may extract "cube" object to separate file
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
 // import { useRender } from "react-three-fiber";
 // import { OrbitControls, Stars } from "@react-three/drei";
-import { useSpring, animated } from "@react-spring/three";
+import { animated } from "@react-spring/three";
 import * as THREE from "three";
 
 import EarthNormalMap from "../../assets/textures/8k_earth_normal_map.jpg";
