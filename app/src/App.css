@@ -2,7 +2,7 @@ html,
 body,
 #root,
 canvas {
-  height: 125%;
+  height: 150%;
   margin: 100%;
   padding: 0;
   margin: 0;
@@ -12,3 +12,18 @@ canvas {
 .canvasCont {
   background-color: black;
 }
+/* headerMsg
+canvasCont
+timerContnr
+bottmCont */
+/* @media only screen and (max-width: 600px) {
+  .canvasCont {
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .headerMsg {
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+} */

@@ -7,16 +7,40 @@ import Twitter from "./components/TwitterBird/index.js";
 import Timer from "./components/CountDown/Timer.js";
 import "./App.css";
 
+// object for styled components @media queries
+const size = {
+  mobileM: "380px",
+  mobileL: "425px",
+  tablet: "770px",
+  laptop: "1024px",
+};
+
+// @media devices
+const device = {
+  mobileM: `(max-width: ${size.mobileM})`,
+  mobileL: `(max-width: ${size.mobileL})`,
+  tablet: `(max-width: ${size.tablet})`,
+  laptop: `(max-width: ${size.laptop})`,
+};
+
 const CanvasContainer = styled.div`
   width: 100%;
-  height: 125%;
+  height: 150%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
   //text-shadow: 0 0 5px #c8c8c8;
   // border: 1px solid red;
   position: relative;
+  //@media ${device.tablet} {
+    flex-direction: row;
+    flex-wrap: wrap;
+  };
+  @media ${device.mobileL} {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 `;
 
 const HiddenHeader = styled.h1`
@@ -25,13 +49,14 @@ const HiddenHeader = styled.h1`
 const HeaderMsg = styled.div`
   position: absolute;
   background-color: white;
+  text-align: center;
   opacity: 0.7;
   display: flex;
   flex-direction: column;
   padding: 2.5%;
   margin-bottom: 45%;
-  margin-top: -45%;
-  margin-left: 45%;
+  margin-top: -35%;
+  // margin-left: 45%;
   border-radius: 25px;
   border: 3px solid #373f4a;
   -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
@@ -39,6 +64,14 @@ const HeaderMsg = styled.div`
   box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
     -5px -1px 40px -5px rgba(221, 232, 220, 0.73);
   font-size: 1.5rem;
+  @media ${device.tablet} {
+    margin-bottom: 150%;
+    margin-top: -150%;
+  }
+  @media ${device.mobileL} {
+    margin-bottom: 200%;
+    margin-top: -200%;
+  }
 `;
 
 const TimerCTACont = styled.div`
@@ -49,6 +82,7 @@ const TimerCTACont = styled.div`
   flex-direction: column;
   text-size: 0.5rem;
   align-items: center;
+  margin-top: 50%;
   padding: 2.5%;
   border: 3px solid #373f4a;
   border-radius: 25px;
@@ -59,7 +93,11 @@ const TimerCTACont = styled.div`
   box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
     -5px -1px 40px -5px rgba(221, 232, 220, 0.73);
   max-width: 60%;
-  //margin-
+  min-width: 265px;
+  @media ${device.mobileL} {
+    margin-top: 50%;
+    margin-bottom: -50%;
+  }
 `;
 
 const CTATextCont = styled.div`
@@ -77,9 +115,9 @@ const BottomContent = styled.div`
   align-items: center;
   justify-content: center;
   padding: 2.5%;
-  margin-top: 50%;
-  margin-bottom: -50%;
-  margin-left: 40%;
+  margin-top: 95%;
+  margin-bottom: -95%;
+  //margin-left: 40%;
   border-radius: 25px;
   border: 3px solid #373f4a;
   -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
@@ -103,6 +141,18 @@ const BottomContent = styled.div`
     text-decoration: none;
     color: black;
   }
+  @media ${device.tablet} {
+    margin-top: 250%;
+    margin-bottom: -250%;
+  }
+  @media ${device.mobileL} {
+    margin-top: 350%;
+    margin-bottom: -350%;
+  }
+  @media ${device.mobileM} {
+    margin-top: 425%;
+    margin-bottom: -425%;
+  }
 `;
 
 function App() {
@@ -115,7 +165,7 @@ function App() {
             {/* <OrbitControls /> */}
             <Twitter />
             <Stars
-              radius={400}
+              radius={200}
               depth={50}
               count={29000}
               factor={7}
@@ -125,7 +175,7 @@ function App() {
             {/* <ambientLight intensity={0.5} /> */}
           </Canvas>
           <HiddenHeader>40 Acres Dao</HiddenHeader>
-          <HeaderMsg>
+          <HeaderMsg className="headerMsg">
             <span>
               <p>
                 We're Almost Done
@@ -134,13 +184,13 @@ function App() {
             </span>
             <p>Find Out When We Finish</p>
           </HeaderMsg>
-          <TimerCTACont>
+          <TimerCTACont className="timerContnr">
             <Timer />
             <CTATextCont>
               <h2>40 Acres DAO Launching Soon</h2>
             </CTATextCont>
           </TimerCTACont>
-          <BottomContent>
+          <BottomContent className="bottmCont">
             <a href="https://www.twitter.com/40AcresDao" className="twttr-link">
               <h3>Follow The Journey On Our Official Twitter</h3>
               <span>@40AcresDAO</span>

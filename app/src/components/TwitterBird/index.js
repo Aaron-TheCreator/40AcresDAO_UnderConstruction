@@ -32,7 +32,7 @@ const Twitter = () => {
         rotation={[0, 0.9, 0]}
         object={model.scene}
         scale={[0.001, 0.001, 0.001]}
-        position={[-0.4, -0.75, 2.5]}
+        position={[0, -1.5, 2.5]}
       />
     </group>
   ) : null;

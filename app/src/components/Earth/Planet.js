@@ -44,8 +44,8 @@ export function Earth(props) {
     // if (active && hover) {
     //   cubeRef.current.rotation.y = elapsedTime / 8;
     // }
-    earthRef.current.rotation.y = elapsedTime / 6;
-    cloudsRef.current.rotation.y = elapsedTime / 5;
+    earthRef.current.rotation.y = elapsedTime / 13;
+    cloudsRef.current.rotation.y = elapsedTime / 12.5;
     cubeRef.current.rotation.x = elapsedTime / 10;
   });
 
@@ -58,7 +58,11 @@ export function Earth(props) {
         <meshPhysicalMaterial map={cloudsMap} />
       </mesh> */}
       {/* clouds mesh */}
-      <animated.mesh ref={cloudsRef} scale={[1, 1, 1]} position={[0.4, 0, 1.5]}>
+      <animated.mesh
+        ref={cloudsRef}
+        scale={[1, 1, 1]}
+        position={[0, -0.5, 1.5]}
+      >
         <sphereGeometry args={[1.005, 32, 32]} />
         <meshPhysicalMaterial
           map={cloudsMap}
@@ -69,7 +73,7 @@ export function Earth(props) {
         />
       </animated.mesh>
       {/* earth mesh */}
-      <animated.mesh ref={earthRef} scale={[1, 1, 1]} position={[0.4, 0, 1.5]}>
+      <animated.mesh ref={earthRef} scale={[1, 1, 1]} position={[0, -0.5, 1.5]}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshPhongMaterial specularMap={specularMap} />
         <meshStandardMaterial
@@ -82,8 +86,8 @@ export function Earth(props) {
       {/* cube mesh */}
       <animated.mesh
         ref={cubeRef}
-        position={[0.1, 0.5, 4.1]}
-        scale={[0.15, 0.15, 0.15]}
+        position={[0, 0.5, 4.1]}
+        scale={[0.065, 0.065, 0.065]}
       >
         <boxBufferGeometry args={[4, 2, 2]} />
         <meshPhongMaterial map={acresMap} transparent={true} />
