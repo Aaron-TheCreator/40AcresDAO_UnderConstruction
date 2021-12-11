@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import styled from "styled-components";
 import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import { Earth } from "./components/Earth/Planet.js";
 import { Stars } from "@react-three/drei";
 import Twitter from "./components/TwitterBird/index.js";
@@ -33,7 +34,7 @@ const CanvasContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   //text-shadow: 0 0 5px #c8c8c8;
-  // border: 1px solid red;
+  border: 1px solid red;
   position: relative;
   //@media ${device.tablet} {
     flex-direction: row;
@@ -145,7 +146,7 @@ const BottomContent = styled.div`
   }
   @media ${device.tablet} {
     margin-top: 250%;
-    margin-bottom: -250%;
+    // margin-bottom: -250%;
   }
   @media ${device.mobileL} {
     margin-top: 350%;
@@ -164,7 +165,7 @@ function App() {
         <CanvasContainer className="canvasCont">
           <Canvas>
             <Earth />
-            {/* <OrbitControls /> */}
+            {/* <OrbitControls enableZoom={false} /> */}
             <Twitter />
             <Stars
               radius={200}
