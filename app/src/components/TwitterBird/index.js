@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useSpring } from "@react-spring/core";
+import { animated } from "@react-spring/three";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
@@ -12,29 +13,30 @@ const Twitter = () => {
   }, [loader]);
 
   const properties = useSpring({
-    birdRotation: hover ? 0.05 : 0.01,
+    birdScale: hover ? [0.001, 0.001, 0.001] : [0.0008, 0.0008, 0.0008],
   });
 
-  useFrame((state, delta) => {
+  useFrame(({ clock }) => {
     // { clock }
-    // const elapsedTime = clock.getElapsedTime();
+    const elapsedTime = clock.getElapsedTime();
 
-    if (hover && twttrRef.current) {
-      twttrRef.current.rotation.y += 0.01;
-    } else if (twttrRef.current) {
-      twttrRef.current.rotation.y += 0.05;
-    } else {
-      return null;
-    }
-    // twttrRef.current
-    //   ? (twttrRef.current.rotation.y = properties.birdRotation)
-    //   : console.log("Loading..");
+    // if (hover && twttrRef.current) {
+    //   twttrRef.current.rotation.y = elapsedTime / 2;
+    // } else if (twttrRef.current) {
+    //   twttrRef.current.rotation.y = elapsedTime / 2;
+    // } else {
+    //   return null;
+    // }
+    let ovrflw = 0;
+    twttrRef.current
+      ? (twttrRef.current.rotation.y = elapsedTime / 2)
+      : (ovrflw += 1);
   });
 
   const twttrRef = useRef();
 
   return model ? (
-    <group
+    <animated.group
       onPointerOver={(event) => {
         // console.log("hover:", hover, event.target);
         setHover(true);
@@ -43,14 +45,14 @@ const Twitter = () => {
         setHover(false);
       }}
     >
-      <primitive
+      <animated.primitive
         ref={twttrRef}
         // rotation={[0, 0.9, 0]}
         object={model.scene}
-        scale={[0.001, 0.001, 0.001]}
+        scale={properties.birdScale}
         position={[0, -1.5, 2.5]}
       />
-    </group>
+    </animated.group>
   ) : null;
 };
 
