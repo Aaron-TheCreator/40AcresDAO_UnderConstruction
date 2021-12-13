@@ -34,7 +34,7 @@ const CanvasContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   //text-shadow: 0 0 5px #c8c8c8;
-  border: 1px solid red;
+  // border: 1px solid red;
   position: relative;
   //@media ${device.tablet} {
     flex-direction: row;

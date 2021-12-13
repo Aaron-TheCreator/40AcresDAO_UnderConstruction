@@ -11,43 +11,46 @@ const Twitter = () => {
     loader.load("/twitter_logo/scene.gltf", setModel);
   }, [loader]);
 
-  useFrame(({ clock }) => {
-    const elapsedTime = clock.getElapsedTime();
-    // if (active && hover) {
-    //   cubeRef.current.rotation.y = elapsedTime / 8;
-    // }
+  const properties = useSpring({
+    birdRotation: hover ? 0.05 : 0.01,
+  });
+
+  useFrame((state, delta) => {
+    // { clock }
+    // const elapsedTime = clock.getElapsedTime();
+
     if (hover && twttrRef.current) {
-      twttrRef.current.rotation.y = elapsedTime / 6;
+      twttrRef.current.rotation.y += 0.01;
     } else if (twttrRef.current) {
-      twttrRef.current.rotation.y = elapsedTime / 9;
+      twttrRef.current.rotation.y += 0.05;
     } else {
       return null;
     }
     // twttrRef.current
-    //   ? (twttrRef.current.rotation.y = elapsedTime / 6)
+    //   ? (twttrRef.current.rotation.y = properties.birdRotation)
     //   : console.log("Loading..");
   });
 
-  // const properties = useSpring({
-  //   birdRotation = hover ?
-  // })
   const twttrRef = useRef();
 
   return model ? (
-    <primitive
-      ref={twttrRef}
-      // rotation={[0, 0.9, 0]}
-      object={model.scene}
-      scale={[0.001, 0.001, 0.001]}
-      position={[0, -1.5, 2.5]}
+    <group
       onPointerOver={(event) => {
-        console.log("hover:", hover, event.target);
+        // console.log("hover:", hover, event.target);
         setHover(true);
       }}
       onPointerOut={(event) => {
         setHover(false);
       }}
-    />
+    >
+      <primitive
+        ref={twttrRef}
+        // rotation={[0, 0.9, 0]}
+        object={model.scene}
+        scale={[0.001, 0.001, 0.001]}
+        position={[0, -1.5, 2.5]}
+      />
+    </group>
   ) : null;
 };
 
